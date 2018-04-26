@@ -23,7 +23,9 @@ namespace Kontrahenci
             f2.Show();
             this.Enabled = false;
             Kontrah k = new Kontrah();
-            k.Adr_ulica="asd";
+            k.Nazwa = "asd";
+
+         
             
         }
     }
