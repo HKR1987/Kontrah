@@ -17,6 +17,8 @@ namespace Kontrahenci
             InitializeComponent();
         }
 
+        
+
         private void button1_Click(object sender, EventArgs e)
         {
             Polaczenie sql = new Polaczenie();
@@ -26,7 +28,12 @@ namespace Kontrahenci
         private void button2_Click(object sender, EventArgs e)
         {
             Polaczenie sql = new Polaczenie();
-            sql.polacz();
+            sql.tworzTabele();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

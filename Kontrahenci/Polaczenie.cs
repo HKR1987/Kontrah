@@ -16,30 +16,9 @@ namespace Kontrahenci
         static string haslo = "sa@";
         string connetionString = "Data Source="+serwer+";Initial Catalog="+baza+";User ID="+uzytkownik+";Password="+haslo;
         SqlConnection sql;
-        
-
-        public void polacz()
-        {
-            sql = new SqlConnection(connetionString);
-            try
-            {
-                sql.Open();
-                MessageBox.Show("Success!");
-                sql.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Fail!");
-            }
-        }
-
-        public void tworzTabele()
-        {
-            sql = new SqlConnection(connetionString);
-            try
-            {
-                string zapytanie = @"
-                CREATE TABLE [dbo].[test1](
+        SqlCommand polecenie;
+        string zap_tworzenie = @"
+                CREATE TABLE [test2](
                 Id [int] IDENTITY(1,1) NOT NULL,
                 Nazwa [nchar](50) NULL,
                 Nazwa_skrocona [nchar](50) NULL,
@@ -67,14 +46,46 @@ namespace Kontrahenci
                 Zapl_forma [int] NULL,
                 Zapl_termin [int] NULL,
                 )";
+
+
+       
+
+            public void polacz()
+        {
+            sql = new SqlConnection(connetionString);
+            try
+            {
                 sql.Open();
-               
+                MessageBox.Show("Success!");
                 sql.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Błąd połączenia!");
+                MessageBox.Show("Błąd! " + ex.Message);
             }
+        }
+
+        public void tworzTabele()
+        {
+            sql = new SqlConnection(connetionString);
+            try
+            {
+                
+                sql.Open();
+                polecenie = new SqlCommand(zap_tworzenie,sql);
+                polecenie.ExecuteNonQuery();
+                sql.Close();
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        public void pobierz()
+        {
+
         }
 
 
