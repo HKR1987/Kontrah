@@ -21,12 +21,7 @@ namespace Kontrahenci
         {
             Form f2 = new Form2();
             f2.Show();
-            this.Enabled = false;
-            Kontrah k = new Kontrah();
-            k.Nazwa = "asd";
-
-         
-            
+            //this.Enabled = false;
         }
     }
 }

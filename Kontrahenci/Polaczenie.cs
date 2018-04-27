@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Kontrahenci
         SqlConnection sql;
         SqlCommand polecenie;
         string zap_tworzenie = @"
-                CREATE TABLE [test2](
+                CREATE TABLE [kontrah](
                 Id [int] IDENTITY(1,1) NOT NULL,
                 Nazwa [nchar](50) NULL,
                 Nazwa_skrocona [nchar](50) NULL,
@@ -46,17 +47,19 @@ namespace Kontrahenci
                 Zapl_forma [int] NULL,
                 Zapl_termin [int] NULL,
                 )";
+        string zap_pobieranie = @"
+                SELECT * FROM kontrah";
 
-
-       
-
-            public void polacz()
+        /// <summary>
+        /// Sprawdza połączenie z bazą
+        /// </summary>
+        public void polacz()
         {
             sql = new SqlConnection(connetionString);
             try
             {
                 sql.Open();
-                MessageBox.Show("Success!");
+                MessageBox.Show("Połączenie OK!");
                 sql.Close();
             }
             catch (Exception ex)
@@ -65,12 +68,14 @@ namespace Kontrahenci
             }
         }
 
+        /// <summary>
+        /// tworzy tabelę kontrah w bazie danych
+        /// </summary>
         public void tworzTabele()
         {
             sql = new SqlConnection(connetionString);
             try
             {
-                
                 sql.Open();
                 polecenie = new SqlCommand(zap_tworzenie,sql);
                 polecenie.ExecuteNonQuery();
@@ -82,10 +87,27 @@ namespace Kontrahenci
             }
         }
 
-
-        public void pobierz()
+        /// <summary>
+        /// Pobiera listę wszystkich kontrahentów z tabeli kontrah
+        /// </summary>
+        /// <returns>Obiekt DataTable</returns>
+        public DataTable pobierz()
         {
+            sql = new SqlConnection(connetionString);
+            polecenie = new SqlCommand(zap_pobieranie,sql);
+            SqlDataAdapter sqlDataAdap = new SqlDataAdapter(polecenie);
+            DataTable dt = new DataTable();
+            sqlDataAdap.Fill(dt);
+            return dt;
+        }
 
+        public void dodaj(Kontrah k)
+        {
+            string zap_dodaj = string.Format("INSERT INTO [kontrah]([Nazwa], [Nazwa_skrocona], [Adr_ulica], [Adr_nr_dom], [Adr_nr_mieszkania], [Adr_kod_pocztowy], [Adr_miejscowosc], [Adrk_ulica], [Adrk_nr_dom], [Adrk_nr_mieszkania], [Adrk_kod_pocztowy], [Adrk_miejscowosc], [Telefon], [Email], [Aktywny], [Nip], [Pesel], [Dow_seria], [Dow_numer], [Dow_wydal], [Dow_data_wyd], [Bank_nazwa], [Bank_numer], [Zapl_forma], [Zapl_termin]) VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}, {19}, {20}, {21}, {22}, {23}, {24})", k.Nazwa, k.Nazwa_skrocona, k.Adr_ulica, k.Adr_nr_dom, k.Adr_nr_mieszkania, k.Adr_kod_pocztowy, k.Adr_miejscowosc, k.Adrk_ulica, k.Adrk_nr_dom, k.Adrk_nr_mieszkania, k.Adrk_kod_pocztowy, k.Adrk_miejscowosc, k.Telefon, k.Email, k.Aktywny, k.Nip, k.Pesel, k.Dow_seria, k.Dow_numer, k.Dow_wydal, k.Dow_data_wyd, k.Bank_nazwa, k.Bank_numer, k.Zapl_forma, k.Zapl_termin);
+            sql.Open();
+            polecenie = new SqlCommand(zap_dodaj, sql);
+            polecenie.ExecuteNonQuery();
+            sql.Close();
         }
 
 

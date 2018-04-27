@@ -12,26 +12,40 @@ namespace Kontrahenci
 {
     public partial class Form2 : Form
     {
+
+        Polaczenie sql = new Polaczenie();
         public Form2()
         {
             InitializeComponent();
+            try
+            {
+                dataGridView1.DataSource = sql.pobierz();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        
-
-        private void button1_Click(object sender, EventArgs e)
+        private void b_spr_Click(object sender, EventArgs e)
         {
-            Polaczenie sql = new Polaczenie();
+            //sql = new Polaczenie();
             sql.polacz();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void b_tworz_Click(object sender, EventArgs e)
         {
-            Polaczenie sql = new Polaczenie();
+            //sql = new Polaczenie();
             sql.tworzTabele();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void b_dodaj_Click(object sender, EventArgs e)
+        {
+            Form3 f3 = new Form3();
+            f3.Show();
+        }
+
+        private void b_wybierz_Click(object sender, EventArgs e)
         {
 
         }
