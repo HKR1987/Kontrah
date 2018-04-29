@@ -19,9 +19,9 @@ namespace Kontrahenci
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form f2 = new Form2();
+            Form f2 = new Form2(this);
             f2.Show();
-            //this.Enabled = false;
+            this.Enabled = false;
         }
     }
 }

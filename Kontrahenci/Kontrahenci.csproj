@@ -64,6 +64,7 @@
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="Kontrah.cs" />
+    <Compile Include="Konwersje.cs" />
     <Compile Include="Polaczenie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kontrahenci
 {
-    class Kontrah
+    public class Kontrah
     {
         int Id { get; set; }
         public string Nazwa { get; set; }
@@ -48,9 +48,8 @@ namespace Kontrahenci
 
         }
 
-        public Kontrah(int id, string nazwa, string nazwa_skrocona, string adr_ulica, int adr_nr_dom, int adr_nr_mieszkania, string adr_kod_pocztowy, string adr_miejscowosc, string adrk_ulica, int adrk_nr_dom, int adrk_nr_mieszkania, string adrk_kod_pocztowy, string adrk_miejscowosc, string telefon, string email, bool aktywny, string nip, string pesel, string dow_seria, string dow_numer, string dow_wydal, string dow_data_wyd, string bank_nazwa, string bank_numer, int zapl_forma, int zapl_termin)
+        public Kontrah(string nazwa, string nazwa_skrocona, string adr_ulica, int adr_nr_dom, int adr_nr_mieszkania, string adr_kod_pocztowy, string adr_miejscowosc, string adrk_ulica, int adrk_nr_dom, int adrk_nr_mieszkania, string adrk_kod_pocztowy, string adrk_miejscowosc, string telefon, string email, bool aktywny, string nip, string pesel, string dow_seria, string dow_numer, string dow_wydal, string dow_data_wyd, string bank_nazwa, string bank_numer, int zapl_forma, int zapl_termin)
         {
-            Id = id;
             Nazwa = nazwa;
             Nazwa_skrocona = nazwa_skrocona;
             Adr_ulica = adr_ulica;

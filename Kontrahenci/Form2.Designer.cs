@@ -32,7 +32,8 @@
             this.b_tworz = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.b_dodaj = new System.Windows.Forms.Button();
-            this.b_wybierz = new System.Windows.Forms.Button();
+            this.b_usun = new System.Windows.Forms.Button();
+            this.b_edytuj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,32 +73,44 @@
             this.b_dodaj.Name = "b_dodaj";
             this.b_dodaj.Size = new System.Drawing.Size(151, 23);
             this.b_dodaj.TabIndex = 3;
-            this.b_dodaj.Text = "Dodaj Kontrahenta";
+            this.b_dodaj.Text = "Dodaj kontrahenta";
             this.b_dodaj.UseVisualStyleBackColor = true;
             this.b_dodaj.Click += new System.EventHandler(this.b_dodaj_Click);
             // 
-            // b_wybierz
+            // b_usun
             // 
-            this.b_wybierz.Location = new System.Drawing.Point(169, 368);
-            this.b_wybierz.Name = "b_wybierz";
-            this.b_wybierz.Size = new System.Drawing.Size(151, 23);
-            this.b_wybierz.TabIndex = 4;
-            this.b_wybierz.Text = "Wybierz Kontrahenta";
-            this.b_wybierz.UseVisualStyleBackColor = true;
-            this.b_wybierz.Click += new System.EventHandler(this.b_wybierz_Click);
+            this.b_usun.Location = new System.Drawing.Point(169, 368);
+            this.b_usun.Name = "b_usun";
+            this.b_usun.Size = new System.Drawing.Size(151, 23);
+            this.b_usun.TabIndex = 5;
+            this.b_usun.Text = "Usuń kontrahenta";
+            this.b_usun.UseVisualStyleBackColor = true;
+            this.b_usun.Click += new System.EventHandler(this.b_usun_Click);
+            // 
+            // b_edytuj
+            // 
+            this.b_edytuj.Location = new System.Drawing.Point(326, 368);
+            this.b_edytuj.Name = "b_edytuj";
+            this.b_edytuj.Size = new System.Drawing.Size(151, 23);
+            this.b_edytuj.TabIndex = 6;
+            this.b_edytuj.Text = "Edytuj kontrahenta";
+            this.b_edytuj.UseVisualStyleBackColor = true;
+            this.b_edytuj.Click += new System.EventHandler(this.b_edytuj_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 403);
-            this.Controls.Add(this.b_wybierz);
+            this.Controls.Add(this.b_edytuj);
+            this.Controls.Add(this.b_usun);
             this.Controls.Add(this.b_dodaj);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.b_tworz);
             this.Controls.Add(this.b_spr);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Kontrahenci";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -109,6 +122,7 @@
         private System.Windows.Forms.Button b_tworz;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button b_dodaj;
-        private System.Windows.Forms.Button b_wybierz;
+        private System.Windows.Forms.Button b_usun;
+        private System.Windows.Forms.Button b_edytuj;
     }
 }

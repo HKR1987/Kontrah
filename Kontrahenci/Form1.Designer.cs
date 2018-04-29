@@ -48,7 +48,8 @@
             this.ClientSize = new System.Drawing.Size(120, 55);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Projekt Kontrah";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
