@@ -1,6 +1,6 @@
 ﻿namespace KontrahenciV2.Model
 {
-    internal class Kontrahent : Element
+    public class Kontrahent : Element
     {
         public string Nazwa { get; set; }
         public string NazwaSkrocona { get; set; }

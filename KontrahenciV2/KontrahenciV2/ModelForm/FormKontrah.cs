@@ -19,6 +19,11 @@ namespace KontrahenciV2.ModelForm
             comboBoxFormaZaplaty.DataSource = Enum.GetValues(typeof(FormaZaplaty));
         }
 
+        public FormKontrah(Kontrahent kontrahent)
+        {
+            InitializeComponent();
+        }
+
         private void CheckBoxAdresKor_CheckedChanged(object sender, EventArgs e)
         {
             groupBoxAdresKor.Enabled = checkBoxAdresKor.Checked ? true : false;

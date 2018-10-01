@@ -1,6 +1,6 @@
 ﻿namespace KontrahenciV2.Model
 {
-    internal class Adres
+    public class Adres
     {
         public string Miejscowosc { get; set; }
         public string Ulica { get; set; }

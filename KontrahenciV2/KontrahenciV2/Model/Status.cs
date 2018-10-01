@@ -1,6 +1,6 @@
 ﻿namespace KontrahenciV2.Model
 {
-    internal enum Status
+    public enum Status
     {
         niekatywny = 0,
         aktywny = 1,

@@ -2,7 +2,7 @@
 
 namespace KontrahenciV2.Model
 {
-    internal class KontoBankowe
+    public class KontoBankowe
     {
         string Nazwa { get; set; }
         string Numer { get; set; }
