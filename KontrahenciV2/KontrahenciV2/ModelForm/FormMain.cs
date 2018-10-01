@@ -12,7 +12,7 @@ namespace KontrahenciV2.ModelForm
 
         private void ButtonNowyKontrahent_Click(object sender, System.EventArgs e)
         {
-            FormNowyKontrah  form = new FormNowyKontrah();
+            FormKontrah  form = new FormKontrah();
             form.ShowDialog();
         }
     }

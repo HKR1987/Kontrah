@@ -62,11 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelForm\FormNowyKontrah.cs">
+    <Compile Include="ModelForm\FormKontrah.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModelForm\FormNowyKontrah.Designer.cs">
-      <DependentUpon>FormNowyKontrah.cs</DependentUpon>
+    <Compile Include="ModelForm\FormKontrah.Designer.cs">
+      <DependentUpon>FormKontrah.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Adres.cs" />
     <Compile Include="Model\DowodOsobisty.cs" />
@@ -76,6 +76,7 @@
     <Compile Include="ModelForm\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Element.cs" />
     <Compile Include="Model\FormaZaplaty.cs" />
     <Compile Include="Model\KontoBankowe.cs" />
     <Compile Include="Model\Kontrahent.cs" />
@@ -86,8 +87,8 @@
     <EmbeddedResource Include="ModelForm\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModelForm\FormNowyKontrah.resx">
-      <DependentUpon>FormNowyKontrah.cs</DependentUpon>
+    <EmbeddedResource Include="ModelForm\FormKontrah.resx">
+      <DependentUpon>FormKontrah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

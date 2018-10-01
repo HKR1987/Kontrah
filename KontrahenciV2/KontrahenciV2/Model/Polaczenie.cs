@@ -1,6 +1,6 @@
 ﻿namespace KontrahenciV2.Model
 {
-    class Polaczenie
+    internal class Polaczenie
     {
     //    private SQLiteConnection _dbConnection = new SQLiteConnection("Data Source=baza.sqlite;Version=3;");
     //    private SQLiteCommand _command;

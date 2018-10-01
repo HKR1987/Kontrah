@@ -1,8 +1,8 @@
 ﻿namespace KontrahenciV2.Model
 {
-    enum FormaZaplaty
+    internal enum FormaZaplaty
     {
-        gotowka = 0,
+        gotówka = 0,
         przelew = 1
     }
 }
