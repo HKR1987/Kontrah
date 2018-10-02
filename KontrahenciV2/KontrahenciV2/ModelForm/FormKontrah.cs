@@ -15,13 +15,18 @@ namespace KontrahenciV2.ModelForm
         public FormKontrah()
         {
             InitializeComponent();
-            comboBoxStatus.DataSource = Enum.GetValues(typeof(Status));
-            comboBoxFormaZaplaty.DataSource = Enum.GetValues(typeof(FormaZaplaty));
+            UstawComboBoxy();
         }
 
         public FormKontrah(Kontrahent kontrahent)
         {
             InitializeComponent();
+        }
+
+        private void UstawComboBoxy()
+        {
+            comboBoxStatus.DataSource = Enum.GetValues(typeof(Status));
+            comboBoxFormaZaplaty.DataSource = Enum.GetValues(typeof(FormaZaplaty));
         }
 
         private void CheckBoxAdresKor_CheckedChanged(object sender, EventArgs e)
@@ -42,13 +47,16 @@ namespace KontrahenciV2.ModelForm
 
         private void DodajKontrahentaDoBazy(Kontrahent kontrahent)
         {
-            throw new NotImplementedException();
+            var status = SQLiteAdapter.DodajKontrahenta(kontrahent);
+            if (!status)
+            {
+                MessageBox.Show("Błąd przy dodawaniu kontrahenta");
+            }
         }
 
         private Kontrahent GenerujKontrahenta()
         {
-            Enum.TryParse<FormaZaplaty>(comboBoxFormaZaplaty.Text, out FormaZaplaty forma);
-            Enum.TryParse<Status>(comboBoxFormaZaplaty.Text, out Status status);
+            ParsowanieDanych(out FormaZaplaty forma, out Status status, out int terminZaplaty);
             Kontrahent kontrahent = new Kontrahent()
             {
                 Nazwa = textBoxNazwa.Text,
@@ -60,11 +68,18 @@ namespace KontrahenciV2.ModelForm
                 AdresSiedziby = new Adres(textBoxMiejscowosc1.Text, textBoxUlica1.Text, textBoxNrD1.Text, textBoxNrM1.Text, textBoxKodP1.Text),
                 AdresKorespondencyjny = new Adres(textBoxMiejscowosc2.Text, textBoxUlica2.Text, textBoxNrD2.Text, textBoxNrM2.Text, textBoxKodP2.Text),
                 KontoBankowe = new KontoBankowe(textBoxNazwaBanku.Text, textBoxNrKonta.Text),
-                TerminZaplaty = Int32.Parse(textBoxTermin.Text),
+                TerminZaplaty = terminZaplaty,
                 FormaZaplaty = forma,
                 Status = status
             };
             return kontrahent;
+        }
+
+        private void ParsowanieDanych(out FormaZaplaty forma, out Status status, out int terminZaplaty)
+        {
+            Enum.TryParse(comboBoxFormaZaplaty.Text, out forma);
+            Enum.TryParse(comboBoxFormaZaplaty.Text, out status);
+            terminZaplaty = Int32.Parse(textBoxTermin.Text);
         }
     }
 }

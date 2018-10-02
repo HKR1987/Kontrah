@@ -1,61 +1,41 @@
-﻿namespace KontrahenciV2.Model
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Windows.Forms;
+
+namespace KontrahenciV2.Model
 {
     internal class Polaczenie
     {
-    //    private SQLiteConnection _dbConnection = new SQLiteConnection("Data Source=baza.sqlite;Version=3;");
-    //    private SQLiteCommand _command;
+        private SQLiteConnection _dbConnection = new SQLiteConnection("Data Source=baza.sqlite;Version=3;");
+        private SQLiteCommand _command;
 
-    //    public void ZapytanieVoid(string zapytanie)
-    //    {
-    //        try
-    //        {
-    //            _dbConnection.Open();
-    //            _command = new SQLiteCommand(zapytanie, _dbConnection);
-    //            _command.ExecuteNonQuery();
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            MessageBox.Show(e.Message);
-    //        }
-    //        finally
-    //        {
-    //            _dbConnection.Close();
-    //        }
-    //    }
+        public int ZapytanieZeStatusem(string zapytanie)
+        {
+            int wynik = 0;
+            try
+            {
+                _dbConnection.Open();
+                _command = new SQLiteCommand(zapytanie, _dbConnection);
+                wynik =_command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                _dbConnection.Close();
+            }
+            return wynik;
+        }
 
-    //    public DataSet ZapytanieDataSet(string zapytanie)
-    //    {
-    //        DataSet ds = new DataSet();
+        public List<Kontrahent> PobierzListeKontrahentow()
+        {
+            var listaKontrahentow = new List<Kontrahent>();
 
-    //        try
-    //        {
-    //            _dbConnection.Open();
-    //            var da = new SQLiteDataAdapter(zapytanie, _dbConnection);
-    //            SQLiteCommand command = new SQLiteCommand(zapytanie, _dbConnection);
-    //            da.Fill(ds);
-    //        }
-    //        catch (SQLiteException e)
-    //        {
-    //            if (e.ErrorCode == 1)
-    //            {
-    //                MessageBox.Show("Błąd SQLite");
-    //            }
-    //            else
-    //            {
-    //                MessageBox.Show(e.Message);
-    //            }
-
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            MessageBox.Show(e.Message);
-    //        }
-    //        finally
-    //        {
-    //            _dbConnection.Close();
-    //        }
-    //        return ds;
-    //    }
+            return listaKontrahentow;
+        }
 
 
     }

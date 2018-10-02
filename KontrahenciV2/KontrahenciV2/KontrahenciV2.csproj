@@ -81,6 +81,7 @@
     <Compile Include="Model\KontoBankowe.cs" />
     <Compile Include="Model\Kontrahent.cs" />
     <Compile Include="Model\Polaczenie.cs" />
+    <Compile Include="Model\SQLiteAdapter.cs" />
     <Compile Include="Model\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

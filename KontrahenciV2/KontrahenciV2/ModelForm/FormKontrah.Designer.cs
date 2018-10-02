@@ -71,12 +71,12 @@
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxNazwaBanku = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBoxNrKonta = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBoxTermin = new System.Windows.Forms.TextBox();
             this.comboBoxFormaZaplaty = new System.Windows.Forms.ComboBox();
+            this.textBoxTermin = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBoxNrKonta = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxNazwaBanku = new System.Windows.Forms.TextBox();
             this.groupBoxAdres.SuspendLayout();
             this.groupBoxAdresKor.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -439,6 +439,7 @@
             // 
             // comboBoxStatus
             // 
+            this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStatus.Location = new System.Drawing.Point(259, 261);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(75, 21);
@@ -469,28 +470,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Płatności";
             // 
-            // textBoxNazwaBanku
+            // comboBoxFormaZaplaty
             // 
-            this.textBoxNazwaBanku.Location = new System.Drawing.Point(6, 32);
-            this.textBoxNazwaBanku.Name = "textBoxNazwaBanku";
-            this.textBoxNazwaBanku.Size = new System.Drawing.Size(116, 20);
-            this.textBoxNazwaBanku.TabIndex = 23;
+            this.comboBoxFormaZaplaty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFormaZaplaty.Location = new System.Drawing.Point(128, 32);
+            this.comboBoxFormaZaplaty.Name = "comboBoxFormaZaplaty";
+            this.comboBoxFormaZaplaty.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxFormaZaplaty.TabIndex = 23;
             // 
-            // label21
+            // textBoxTermin
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 55);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 13);
-            this.label21.TabIndex = 24;
-            this.label21.Text = "Nr konta";
-            // 
-            // textBoxNrKonta
-            // 
-            this.textBoxNrKonta.Location = new System.Drawing.Point(6, 71);
-            this.textBoxNrKonta.Name = "textBoxNrKonta";
-            this.textBoxNrKonta.Size = new System.Drawing.Size(226, 20);
-            this.textBoxNrKonta.TabIndex = 25;
+            this.textBoxTermin.Location = new System.Drawing.Point(209, 32);
+            this.textBoxTermin.Name = "textBoxTermin";
+            this.textBoxTermin.Size = new System.Drawing.Size(23, 20);
+            this.textBoxTermin.TabIndex = 27;
             // 
             // label22
             // 
@@ -501,19 +494,28 @@
             this.label22.TabIndex = 26;
             this.label22.Text = "Forma i termin zapłaty";
             // 
-            // textBoxTermin
+            // textBoxNrKonta
             // 
-            this.textBoxTermin.Location = new System.Drawing.Point(209, 32);
-            this.textBoxTermin.Name = "textBoxTermin";
-            this.textBoxTermin.Size = new System.Drawing.Size(23, 20);
-            this.textBoxTermin.TabIndex = 27;
+            this.textBoxNrKonta.Location = new System.Drawing.Point(6, 71);
+            this.textBoxNrKonta.Name = "textBoxNrKonta";
+            this.textBoxNrKonta.Size = new System.Drawing.Size(226, 20);
+            this.textBoxNrKonta.TabIndex = 25;
             // 
-            // comboBoxFormaZaplaty
+            // label21
             // 
-            this.comboBoxFormaZaplaty.Location = new System.Drawing.Point(128, 32);
-            this.comboBoxFormaZaplaty.Name = "comboBoxFormaZaplaty";
-            this.comboBoxFormaZaplaty.Size = new System.Drawing.Size(75, 21);
-            this.comboBoxFormaZaplaty.TabIndex = 23;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 55);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 13);
+            this.label21.TabIndex = 24;
+            this.label21.Text = "Nr konta";
+            // 
+            // textBoxNazwaBanku
+            // 
+            this.textBoxNazwaBanku.Location = new System.Drawing.Point(6, 32);
+            this.textBoxNazwaBanku.Name = "textBoxNazwaBanku";
+            this.textBoxNazwaBanku.Size = new System.Drawing.Size(116, 20);
+            this.textBoxNazwaBanku.TabIndex = 23;
             // 
             // FormKontrah
             // 

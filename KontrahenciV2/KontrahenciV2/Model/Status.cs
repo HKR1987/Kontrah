@@ -2,8 +2,8 @@
 {
     public enum Status
     {
-        niekatywny = 0,
-        aktywny = 1,
-        zawieszony = 2
+        aktywny,
+        niekatywny,
+        zawieszony
     }
 }

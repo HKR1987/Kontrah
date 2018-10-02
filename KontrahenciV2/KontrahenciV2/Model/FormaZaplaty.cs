@@ -2,7 +2,7 @@
 {
     public enum FormaZaplaty
     {
-        gotówka = 0,
-        przelew = 1
+        gotówka,
+        przelew
     }
 }
