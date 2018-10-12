@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace KontrahenciV2.Model
@@ -8,18 +9,18 @@ namespace KontrahenciV2.Model
 
         public static bool DodajKontrahenta(Kontrahent kontrahent)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public static Kontrahent PobierzKontrahenta(int id)
         {
-            return new Kontrahent();
+            throw new NotImplementedException();
+
         }
 
         public static List<Kontrahent> PobierzListeKontrahentow()
         {
-
-            return new List<Kontrahent>();
+            throw new NotImplementedException();
         }
     }
 }

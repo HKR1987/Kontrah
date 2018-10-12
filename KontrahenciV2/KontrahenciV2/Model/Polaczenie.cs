@@ -33,8 +33,8 @@ namespace KontrahenciV2.Model
         public List<Kontrahent> PobierzListeKontrahentow()
         {
             var listaKontrahentow = new List<Kontrahent>();
+            throw new NotImplementedException();
 
-            return listaKontrahentow;
         }
 
 
