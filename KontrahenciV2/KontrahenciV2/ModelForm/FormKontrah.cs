@@ -47,10 +47,14 @@ namespace KontrahenciV2.ModelForm
 
         private void DodajKontrahentaDoBazy(Kontrahent kontrahent)
         {
-            var status = SQLiteAdapter.DodajKontrahenta(kontrahent);
-            if (!status)
+            var status = Polaczenie.DodajKontrahenta(kontrahent);
+            if (status>0)
             {
-                MessageBox.Show("Błąd przy dodawaniu kontrahenta");
+                MessageBox.Show("Pomyślnie dodano kontrahenta.");
+            }
+            else
+            {
+                MessageBox.Show("Błąd przy dodawaniu kontrahenta.");
             }
         }
 

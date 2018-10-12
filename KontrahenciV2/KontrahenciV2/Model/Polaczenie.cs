@@ -7,17 +7,47 @@ namespace KontrahenciV2.Model
 {
     internal class Polaczenie
     {
-        private SQLiteConnection _dbConnection = new SQLiteConnection("Data Source=baza.sqlite;Version=3;");
-        private SQLiteCommand _command;
+        private static SQLiteConnection _dbConnection = new SQLiteConnection("Data Source=baza.sqlite;Version=3;");
+        private static SQLiteCommand _command;
 
-        public int ZapytanieZeStatusem(string zapytanie)
+        private int ZapytanieZeStatusem(string zapytanie)
         {
-            int wynik = 0;
+            var wynik = 0;
+            using (_dbConnection)
+            {
+                try
+                {
+                    _dbConnection.Open();
+                    _command = new SQLiteCommand(zapytanie, _dbConnection);
+                    wynik = _command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
+            return wynik;
+        }
+
+        public static List<Kontrahent> PobierzListeKontrahentow()
+        {
+            var listaKontrahentow = new List<Kontrahent>();
+            throw new NotImplementedException();
+        }
+
+        public static int DodajKontrahenta(Kontrahent kontrahent)
+        {
+            var wynik = 0;
+            var zapytanie = $"INSERT INTO Kontrahent " +
+                    $"(nazwa, nazwaSkrocona, nip, regon, telefon, email, status, formaZaplaty, terminZaplaty) VALUES " +
+                    $"('{kontrahent.Nazwa}','{kontrahent.NazwaSkrocona}','{kontrahent.Nip}','{kontrahent.Regon}','{kontrahent.Telefon}'," +
+                    $"'{kontrahent.Email}', {(int)kontrahent.Status}, {(int)kontrahent.FormaZaplaty}, {kontrahent.TerminZaplaty})";
+
             try
             {
                 _dbConnection.Open();
                 _command = new SQLiteCommand(zapytanie, _dbConnection);
-                wynik =_command.ExecuteNonQuery();
+                wynik = _command.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -29,14 +59,5 @@ namespace KontrahenciV2.Model
             }
             return wynik;
         }
-
-        public List<Kontrahent> PobierzListeKontrahentow()
-        {
-            var listaKontrahentow = new List<Kontrahent>();
-            throw new NotImplementedException();
-
-        }
-
-
     }
 }

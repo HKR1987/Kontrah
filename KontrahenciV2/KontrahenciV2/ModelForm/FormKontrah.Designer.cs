@@ -481,9 +481,11 @@
             // textBoxTermin
             // 
             this.textBoxTermin.Location = new System.Drawing.Point(209, 32);
+            this.textBoxTermin.MaxLength = 3;
             this.textBoxTermin.Name = "textBoxTermin";
             this.textBoxTermin.Size = new System.Drawing.Size(23, 20);
             this.textBoxTermin.TabIndex = 27;
+            this.textBoxTermin.Text = "0";
             // 
             // label22
             // 

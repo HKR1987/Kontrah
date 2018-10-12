@@ -81,7 +81,6 @@
     <Compile Include="Model\KontoBankowe.cs" />
     <Compile Include="Model\Kontrahent.cs" />
     <Compile Include="Model\Polaczenie.cs" />
-    <Compile Include="Model\SQLiteAdapter.cs" />
     <Compile Include="Model\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,7 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="App.config" />
-    <None Include="baza.sqlite" />
+    <None Include="baza.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
