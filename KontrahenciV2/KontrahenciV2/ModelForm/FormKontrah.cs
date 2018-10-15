@@ -13,22 +13,37 @@ namespace KontrahenciV2.ModelForm
     public partial class FormKontrah : Form
     {
         private Polaczenie _polaczenie = new Polaczenie();
-        private int id;
+        private int _id;
+        private bool _edycja;
 
         public FormKontrah()
         {
             InitializeComponent();
             UstawComboBoxy();
-        }
-
-        public FormKontrah(Kontrahent kontrahent)
-        {
-            InitializeComponent();
+            _edycja = false;
         }
 
         public FormKontrah(int id)
         {
-            this.id = id;
+            _id = id;
+            InitializeComponent();
+            UstawComboBoxy();
+            _edycja = true;
+            var kontrahent = _polaczenie.PobierzKontrahenta(id);
+            UzupelnijKontrolki(kontrahent);
+        }
+
+        private void UzupelnijKontrolki(Kontrahent kontrahent)
+        {
+            textBoxNazwa.Text = kontrahent.Nazwa;
+            textBoxNazwaSkr.Text = kontrahent.NazwaSkrocona;
+            textBoxNip.Text = kontrahent.Nip;
+            textBoxRegon.Text = kontrahent.Regon;
+            textBoxTelefon.Text = kontrahent.Telefon;
+            textBoxEMail.Text = kontrahent.Email;
+            textBoxTermin.Text = kontrahent.TerminZaplaty.ToString();
+            comboBoxFormaZaplaty.Text = "" + kontrahent.FormaZaplaty;
+            comboBoxStatus.Text = "" + kontrahent.Status;
         }
 
         private void UstawComboBoxy()
@@ -49,9 +64,19 @@ namespace KontrahenciV2.ModelForm
 
         private void ButtonZapisz_Click(object sender, EventArgs e)
         {
-            Kontrahent kontrahent = GenerujKontrahenta();
-            DodajKontrahentaDoBazy(kontrahent);
-            this.Close();
+            if(_edycja)
+            {
+                var kontrahent = GenerujKontrahenta();
+                _polaczenie.ZapiszKontrahenta(kontrahent, _id);
+                this.Close();
+            }
+            else
+            {
+                var kontrahent = GenerujKontrahenta();
+                DodajKontrahentaDoBazy(kontrahent);
+                this.Close();
+            }
+            
         }
 
         private void DodajKontrahentaDoBazy(Kontrahent kontrahent)
@@ -70,7 +95,7 @@ namespace KontrahenciV2.ModelForm
         private Kontrahent GenerujKontrahenta()
         {
             ParsowanieDanych(out FormaZaplaty forma, out Status status, out int terminZaplaty);
-            Kontrahent kontrahent = new Kontrahent()
+            var kontrahent = new Kontrahent()
             {
                 Nazwa = textBoxNazwa.Text,
                 NazwaSkrocona = textBoxNazwaSkr.Text,
