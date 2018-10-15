@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.buttonNowyKontrahent = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.GridGlowny = new System.Windows.Forms.DataGridView();
+            this.buttonUsunKontrahenta = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.GridGlowny)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNowyKontrahent
@@ -43,24 +44,39 @@
             this.buttonNowyKontrahent.UseVisualStyleBackColor = true;
             this.buttonNowyKontrahent.Click += new System.EventHandler(this.ButtonNowyKontrahent_Click);
             // 
-            // dataGridView1
+            // GridGlowny
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 397);
-            this.dataGridView1.TabIndex = 1;
+            this.GridGlowny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridGlowny.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.GridGlowny.Location = new System.Drawing.Point(12, 41);
+            this.GridGlowny.MultiSelect = false;
+            this.GridGlowny.Name = "GridGlowny";
+            this.GridGlowny.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridGlowny.Size = new System.Drawing.Size(776, 397);
+            this.GridGlowny.TabIndex = 1;
+            this.GridGlowny.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridGlowny_CellDoubleClick);
+            // 
+            // buttonUsunKontrahenta
+            // 
+            this.buttonUsunKontrahenta.Location = new System.Drawing.Point(117, 12);
+            this.buttonUsunKontrahenta.Name = "buttonUsunKontrahenta";
+            this.buttonUsunKontrahenta.Size = new System.Drawing.Size(103, 23);
+            this.buttonUsunKontrahenta.TabIndex = 2;
+            this.buttonUsunKontrahenta.Text = "Usuń Kontrahenta";
+            this.buttonUsunKontrahenta.UseVisualStyleBackColor = true;
+            this.buttonUsunKontrahenta.Click += new System.EventHandler(this.ButtonUsunKontrahenta_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.buttonUsunKontrahenta);
+            this.Controls.Add(this.GridGlowny);
             this.Controls.Add(this.buttonNowyKontrahent);
             this.Name = "FormMain";
             this.Text = "KontrahenciV2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridGlowny)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -68,7 +84,8 @@
         #endregion
 
         private System.Windows.Forms.Button buttonNowyKontrahent;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GridGlowny;
+        private System.Windows.Forms.Button buttonUsunKontrahenta;
     }
 }
 

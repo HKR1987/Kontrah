@@ -12,6 +12,9 @@ namespace KontrahenciV2.ModelForm
 {
     public partial class FormKontrah : Form
     {
+        private Polaczenie _polaczenie = new Polaczenie();
+        private int id;
+
         public FormKontrah()
         {
             InitializeComponent();
@@ -21,6 +24,11 @@ namespace KontrahenciV2.ModelForm
         public FormKontrah(Kontrahent kontrahent)
         {
             InitializeComponent();
+        }
+
+        public FormKontrah(int id)
+        {
+            this.id = id;
         }
 
         private void UstawComboBoxy()
@@ -43,11 +51,12 @@ namespace KontrahenciV2.ModelForm
         {
             Kontrahent kontrahent = GenerujKontrahenta();
             DodajKontrahentaDoBazy(kontrahent);
+            this.Close();
         }
 
         private void DodajKontrahentaDoBazy(Kontrahent kontrahent)
         {
-            var status = Polaczenie.DodajKontrahenta(kontrahent);
+            var status = _polaczenie.DodajKontrahenta(kontrahent);
             if (status>0)
             {
                 MessageBox.Show("Pomyślnie dodano kontrahenta.");
@@ -82,7 +91,7 @@ namespace KontrahenciV2.ModelForm
         private void ParsowanieDanych(out FormaZaplaty forma, out Status status, out int terminZaplaty)
         {
             Enum.TryParse(comboBoxFormaZaplaty.Text, out forma);
-            Enum.TryParse(comboBoxFormaZaplaty.Text, out status);
+            Enum.TryParse(comboBoxStatus.Text, out status);
             terminZaplaty = Int32.Parse(textBoxTermin.Text);
         }
     }

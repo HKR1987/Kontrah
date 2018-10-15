@@ -7,35 +7,69 @@ namespace KontrahenciV2.Model
 {
     internal class Polaczenie
     {
-        private static SQLiteConnection _dbConnection = new SQLiteConnection("Data Source=baza.sqlite;Version=3;");
-        private static SQLiteCommand _command;
+        private SQLiteConnection _dbConnection = new SQLiteConnection("Data Source=baza.sqlite;Version=3;");
+        private SQLiteCommand _command;
 
         private int ZapytanieZeStatusem(string zapytanie)
         {
             var wynik = 0;
-            using (_dbConnection)
+            try
             {
-                try
-                {
-                    _dbConnection.Open();
-                    _command = new SQLiteCommand(zapytanie, _dbConnection);
-                    wynik = _command.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
+                _dbConnection.Open();
+                _command = new SQLiteCommand(zapytanie, _dbConnection);
+                wynik = _command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                _dbConnection.Close();
             }
             return wynik;
         }
 
-        public static List<Kontrahent> PobierzListeKontrahentow()
+        internal List<Kontrahent> PobierzListeKontrahentow()
         {
+            var zapytanie = $"SELECT id, nazwa, nazwaSkrocona, nip, regon, telefon, email, status FROM Kontrahent";
             var listaKontrahentow = new List<Kontrahent>();
-            throw new NotImplementedException();
+            try
+            {
+                _dbConnection.Open();
+                _command = new SQLiteCommand(zapytanie, _dbConnection);
+                SQLiteDataReader reader = _command.ExecuteReader();
+                while(reader.Read())
+                {
+                    listaKontrahentow.Add(new Kontrahent {
+                        Id = Int32.Parse(reader["id"].ToString()),
+                        Nazwa = reader["nazwa"].ToString(),
+                        NazwaSkrocona = reader["nazwaSkrocona"].ToString(),
+                        Nip = reader["nip"].ToString(),
+                        Regon = reader["regon"].ToString(),
+                        Telefon = reader["telefon"].ToString(),
+                        Email = reader["email"].ToString(),
+                        Status = (Status)Int32.Parse(reader["status"].ToString())
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                _dbConnection.Close();
+            }
+            return listaKontrahentow;
         }
 
-        public static int DodajKontrahenta(Kontrahent kontrahent)
+        internal void UsunKontrahenta(int id)
+        {
+            ZapytanieZeStatusem($"DELETE FROM Kontrahent where id={id}");
+        }
+
+        internal int DodajKontrahenta(Kontrahent kontrahent)
         {
             var wynik = 0;
             var zapytanie = $"INSERT INTO Kontrahent " +
