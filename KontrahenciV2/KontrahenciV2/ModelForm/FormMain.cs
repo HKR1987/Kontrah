@@ -44,9 +44,7 @@ namespace KontrahenciV2.ModelForm
 
         private void GridGlowny_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var id = Int32.Parse(GridGlowny.SelectedRows[0].Cells["Id"].Value.ToString());
-            FormKontrah form = new FormKontrah(id);
-            form.ShowDialog();
+            EdytujKontrahenta();
             AktualizujListeKontrahentow();
         }
 
@@ -55,6 +53,18 @@ namespace KontrahenciV2.ModelForm
             var id = Int32.Parse(GridGlowny.SelectedRows[0].Cells["Id"].Value.ToString());
             _polaczenie.UsunKontrahenta(id);
             AktualizujListeKontrahentow();
+        }
+
+        private void ButtonEdytuj_Click(object sender, EventArgs e)
+        {
+            EdytujKontrahenta();
+        }
+
+        private void EdytujKontrahenta()
+        {
+            var id = Int32.Parse(GridGlowny.SelectedRows[0].Cells["Id"].Value.ToString());
+            FormKontrah form = new FormKontrah(id);
+            form.ShowDialog();
         }
     }
 }

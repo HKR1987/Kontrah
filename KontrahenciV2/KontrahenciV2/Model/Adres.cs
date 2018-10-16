@@ -2,6 +2,7 @@
 {
     public class Adres
     {
+        public int IdKontrahenta { get; set; }
         public string Miejscowosc { get; set; }
         public string Ulica { get; set; }
         public string NrDomu { get; set; }
@@ -15,6 +16,11 @@
             NrDomu = nrDomu;
             NrMieszkania = nrMieszkania;
             KodPocztowy = kodPocztowy;
+        }
+        public Adres(int idKontrahenta, string miejscowosc, string ulica, string nrDomu, string nrMieszkania, string kodPocztowy)
+                    :this(miejscowosc, ulica, nrDomu, nrMieszkania, kodPocztowy)
+        {
+            IdKontrahenta = idKontrahenta;
         }
     }
 }

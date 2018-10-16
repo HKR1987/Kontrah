@@ -31,6 +31,7 @@
             this.buttonNowyKontrahent = new System.Windows.Forms.Button();
             this.GridGlowny = new System.Windows.Forms.DataGridView();
             this.buttonUsunKontrahenta = new System.Windows.Forms.Button();
+            this.buttonEdytuj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridGlowny)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,19 +59,30 @@
             // 
             // buttonUsunKontrahenta
             // 
-            this.buttonUsunKontrahenta.Location = new System.Drawing.Point(117, 12);
+            this.buttonUsunKontrahenta.Location = new System.Drawing.Point(181, 12);
             this.buttonUsunKontrahenta.Name = "buttonUsunKontrahenta";
-            this.buttonUsunKontrahenta.Size = new System.Drawing.Size(103, 23);
+            this.buttonUsunKontrahenta.Size = new System.Drawing.Size(58, 23);
             this.buttonUsunKontrahenta.TabIndex = 2;
-            this.buttonUsunKontrahenta.Text = "Usuń Kontrahenta";
+            this.buttonUsunKontrahenta.Text = "Usuń";
             this.buttonUsunKontrahenta.UseVisualStyleBackColor = true;
             this.buttonUsunKontrahenta.Click += new System.EventHandler(this.ButtonUsunKontrahenta_Click);
+            // 
+            // buttonEdytuj
+            // 
+            this.buttonEdytuj.Location = new System.Drawing.Point(117, 12);
+            this.buttonEdytuj.Name = "buttonEdytuj";
+            this.buttonEdytuj.Size = new System.Drawing.Size(58, 23);
+            this.buttonEdytuj.TabIndex = 3;
+            this.buttonEdytuj.Text = "Edytuj";
+            this.buttonEdytuj.UseVisualStyleBackColor = true;
+            this.buttonEdytuj.Click += new System.EventHandler(this.ButtonEdytuj_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonEdytuj);
             this.Controls.Add(this.buttonUsunKontrahenta);
             this.Controls.Add(this.GridGlowny);
             this.Controls.Add(this.buttonNowyKontrahent);
@@ -86,6 +98,7 @@
         private System.Windows.Forms.Button buttonNowyKontrahent;
         private System.Windows.Forms.DataGridView GridGlowny;
         private System.Windows.Forms.Button buttonUsunKontrahenta;
+        private System.Windows.Forms.Button buttonEdytuj;
     }
 }
 

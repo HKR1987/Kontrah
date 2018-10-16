@@ -44,6 +44,27 @@ namespace KontrahenciV2.ModelForm
             textBoxTermin.Text = kontrahent.TerminZaplaty.ToString();
             comboBoxFormaZaplaty.Text = "" + kontrahent.FormaZaplaty;
             comboBoxStatus.Text = "" + kontrahent.Status;
+            if(kontrahent.KontoBankowe !=null)
+            {
+                textBoxNazwaBanku.Text = kontrahent.KontoBankowe.Nazwa;
+                textBoxNrKonta.Text = kontrahent.KontoBankowe.Numer;
+            }
+            if(kontrahent.AdresSiedziby !=null)
+            {
+                textBoxUlica1.Text = kontrahent.AdresSiedziby.Ulica;
+                textBoxNrD1.Text = kontrahent.AdresSiedziby.NrDomu;
+                textBoxNrM1.Text = kontrahent.AdresSiedziby.NrMieszkania;
+                textBoxKodP1.Text = kontrahent.AdresSiedziby.KodPocztowy;
+                textBoxMiejscowosc1.Text = kontrahent.AdresSiedziby.Miejscowosc;
+            }
+            if(kontrahent.AdresKorespondencyjny !=null)
+            {
+                textBoxUlica2.Text = kontrahent.AdresKorespondencyjny.Ulica;
+                textBoxNrD2.Text = kontrahent.AdresKorespondencyjny.NrDomu;
+                textBoxNrM2.Text = kontrahent.AdresKorespondencyjny.NrMieszkania;
+                textBoxKodP2.Text = kontrahent.AdresKorespondencyjny.KodPocztowy;
+                textBoxMiejscowosc2.Text = kontrahent.AdresKorespondencyjny.Miejscowosc;
+            }
         }
 
         private void UstawComboBoxy()
@@ -67,7 +88,7 @@ namespace KontrahenciV2.ModelForm
             if(_edycja)
             {
                 var kontrahent = GenerujKontrahenta();
-                _polaczenie.ZapiszKontrahenta(kontrahent, _id);
+                _polaczenie.AktualizujKontrahenta(kontrahent, _id);
                 this.Close();
             }
             else
@@ -110,6 +131,7 @@ namespace KontrahenciV2.ModelForm
                 FormaZaplaty = forma,
                 Status = status
             };
+            if (!checkBoxAdresKor.Checked) { kontrahent.AdresKorespondencyjny = kontrahent.AdresSiedziby; }
             return kontrahent;
         }
 

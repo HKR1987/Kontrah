@@ -545,7 +545,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxNazwa);
             this.Name = "FormKontrah";
-            this.Text = "FormKontrah";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Kontrahent";
             this.groupBoxAdres.ResumeLayout(false);
             this.groupBoxAdres.PerformLayout();
             this.groupBoxAdresKor.ResumeLayout(false);
